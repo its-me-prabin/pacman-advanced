@@ -19,7 +19,7 @@ function styles() {
     stream = stream.pipe(csso());
   }
 
-  return stream.pipe(gulp.dest('build'));
+  return stream.pipe(gulp.dest('docs'));
 }
 
 // Process and concatenate JavaScript
@@ -39,27 +39,27 @@ function scripts() {
     }));
   }
 
-  return stream.pipe(gulp.dest('build'));
+  return stream.pipe(gulp.dest('docs'));
 }
 
 // Copy HTML
 function copyHtml() {
-  return gulp.src('index.html').pipe(gulp.dest('build'));
+  return gulp.src('index.html').pipe(gulp.dest('docs'));
 }
 
 // Copy favicon
 function copyFavicon() {
-  return gulp.src('favicon.ico').pipe(gulp.dest('build'));
+  return gulp.src('favicon.ico').pipe(gulp.dest('docs'));
 }
 
 // Copy graphics
 function copyGraphics() {
-  return gulp.src('app/style/graphics/**/*', { nodir: true }).pipe(gulp.dest('build/app/style/graphics'));
+  return gulp.src('app/style/graphics/**/*', { nodir: true }).pipe(gulp.dest('docs/app/style/graphics'));
 }
 
 // Copy audio
 function copyAudio() {
-  return gulp.src('app/style/audio/**/*', { nodir: true }).pipe(gulp.dest('build/app/style/audio'));
+  return gulp.src('app/style/audio/**/*', { nodir: true }).pipe(gulp.dest('docs/app/style/audio'));
 }
 
 // Watch files for changes

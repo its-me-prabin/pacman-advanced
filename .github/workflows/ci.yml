@@ -64,11 +64,11 @@ jobs:
     - name: Build project for production
       run: npm run build:prod
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
-        force_orphan: true
-      continue-on-error: true
+    - name: Commit and push docs folder
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add docs/ -f
+        git commit -m "chore: Deploy built assets to docs folder" --allow-empty
+        git push origin master
 
